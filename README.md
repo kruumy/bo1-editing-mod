@@ -37,7 +37,7 @@
 
 ## Dvars
 
-* mvm_killstreak_{[KILLSTREAK NAME](killstreaks.txt)}
+* mvm_killstreak_{[KILLSTREAK NAME](https://github.com/kruumy/bo1-editing-mod/blob/main/killstreak.txt)}
 * mvm_eb_close
 * mvm_canswap
 * bots_...
