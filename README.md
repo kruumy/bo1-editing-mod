@@ -32,6 +32,7 @@
 * Auto Canswap
 * Explosive Bullets
 * Killstreak Dvar
+* Death Drop Gun
 * & More!
 
 ## Dvars
