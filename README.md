@@ -12,7 +12,7 @@
 </div>
 <p align="center">
   <a href="#features">Features</a> •
-  <a href="#support">Support</a> •
+  <a href="#dvars">Dvars</a> •
   <a href="#installation">Installation</a> •
   <a href="#todo">Todo</a> •
   <a href="#credits">Credits</a>
@@ -31,14 +31,11 @@
 * Bo1 Better Anims
 * Auto Canswap
 * Explosive Bullets
+* Killstreak Dvar
+* & More!
 
-## Support
+## Dvars
 
-| Name | Status |
-| --- | --- |
-| Steam BO1 | Yes |
-| [PlutoBO1](plutonium.pw) | Yes |
-| BGamerT5 | Yes |
 
 
 ## Installation
