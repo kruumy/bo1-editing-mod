@@ -1,0 +1,50 @@
+pb_death_jackiespin_inplace - bo1, boom*
+pb_death_jackiespin_left - bo1, boom*
+pb_death_jackiespin_right - bo1, boom*
+pb_death_jackiespin_vertical - bo1, boom*
+
+pb_death_legsout_left - bo1, jumptoleft*
+pb_death_legsout_right - bo1, backtoground
+pb_death_run_back - bo1, flybackstill*
+pb_death_run_forward_crumple - bo1, fallrollonground*
+pb_death_run_left - mw2, leg_kickup
+pb_death_run_onfront - mw2, hit in shoulder, rotate
+pb_death_run_right - bo1, runslide
+pb_death_run_stumble - bo1, runslide*
+pb_death_upontoback - bo1, flybackboom*
+
+pb_laststand_death - bo1, default*
+pb_laststand_suicide_death - bo1, default*
+pb_prone_death_quickdeath - bo1, default*
+pb_prone_martyrdom_death - bo1, default*
+
+pb_stand_death_frontspin - mw2, fast_360spin
+pb_stand_death_head_collapse - bo1, bestflyback
+pb_stand_death_headchest_topple - bo1, chestoutarmsback*
+pb_stand_death_legs - bo1, runslide
+pb_stand_death_lowerback - bo1, backtoground
+pb_stand_death_neckdeath - mw2, hit in shoulder, rotate
+pb_stand_death_neckdeath_thrash - mw3, hands on face
+pb_stand_death_nervedeath - mw2, leg_kickup
+pb_stand_martyrdom_death - bo1, default*
+
+pb_crouch_death_clutchchest - bo1, bestflyback*
+pb_crouch_death_falltohands - bo1, bestflyback*
+pb_crouch_death_fetal - mw3, hands on face
+pb_crouch_death_flip - bo1, armflip*
+pb_crouch_death_headshot_front - bo1, armflip*
+pb_crouch_martyrdom_death - bo1, default*
+pb_crouchrun_death_crumple - bo1, fallrollonground*
+pb_crouchrun_death_drop - aw, kneetoground
+
+pb_death_armslegsforward - bo1, flybackshotty*
+pb_death_armslegsforward_b - bo1, flybackshotty2*
+pb_death_faceplant - bo1, facetoground*
+pb_death_flatonback - bo1, backtoground*
+pb_death_flyback - bo1, boomrollback*
+pb_death_flyback_far - bo1, boomflybackexp*
+pb_death_forwardtoface - bo1, standexplosion*
+
+
+
+* = default
