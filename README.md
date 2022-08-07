@@ -36,13 +36,18 @@
 
 ## Dvars
 
-
+* mvm_killstrek_{[KILLSTREAK NAME](killstreaks.txt)}
+* mvm_eb_close
+* mvm_canswap
+* bots_...
 
 ## Installation
 
 1. Download the latest version from **releases**. -->
-2. Extract and put the folder in the cod4 mod directory.
+2. Extract and put the folder in the BO1 mod directory.
 3. Done!
+
+*Note: For plutonium, you need to put the mod in %localappdata%/Plutonium/storage/t5/mods
 
 ## Todo
 
