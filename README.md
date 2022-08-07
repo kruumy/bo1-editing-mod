@@ -28,7 +28,7 @@
 ## Features
 
 * Advance Bot Features
-* Bo1 Better Anims
+* BO1 Better Anims
 * Auto Canswap
 * Explosive Bullets
 * Killstreak Dvar
