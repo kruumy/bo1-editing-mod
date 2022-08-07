@@ -36,7 +36,7 @@
 
 ## Dvars
 
-* mvm_killstrek_{[KILLSTREAK NAME](killstreaks.txt)}
+* mvm_killstreak_{[KILLSTREAK NAME](killstreaks.txt)}
 * mvm_eb_close
 * mvm_canswap
 * bots_...
