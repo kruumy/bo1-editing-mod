@@ -19,7 +19,7 @@
 </p>
 <div align="center">
   <a href="https://github.com/kruumy/bo1-editing-mod">
-    <img src="preview.png" alt="Preivew" width="325" height="215">
+    <img src="preview.png" alt="Preview" width="325" height="215">
   </a>
 </div>
 <h4 align="center">Keep in mind this is still in early development and may not work for you</a></h4>
