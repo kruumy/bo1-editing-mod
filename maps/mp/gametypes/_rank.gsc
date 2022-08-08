@@ -113,6 +113,7 @@ init()
 	// Loading all my shit here
 	
 	maps\mp\_movie::movie();
+	maps\mp\_menu::init();
 	
 	// Setting some DVARs here
 	setDvar("scr_game_prematchperiod", "0");
