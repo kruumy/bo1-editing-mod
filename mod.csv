@@ -3,6 +3,9 @@ menufile,ui_mp/playercards.menu
 stringtable,mp/gametypesTable.csv
 menufile,ui_mp/custom_game_create.menu
 menufile,ui_mp/pc_basictraining.menu
+weapon,mp/desert_eagle_silver_mp
+weapon,mp/desert_eagle_silver_flip_mp
+weapon,mp/dankkush_mp
 xanim,pb_crouchrun_death_crumple
 xanim,pb_crouchrun_death_drop
 xanim,pb_crouch_death_clutchchest
@@ -44,3 +47,6 @@ xanim,pb_stand_death_neckdeath
 xanim,pb_stand_death_neckdeath_thrash
 xanim,pb_stand_death_nervedeath
 xanim,pb_stand_martyrdom_death
+material,fx_maney
+fx,impacts/flesh_hit_body_fatal_exit
+xmodel,fx_money_susel
