@@ -12,7 +12,6 @@
 </div>
 <p align="center">
   <a href="#features">Features</a> •
-  <a href="#dvars">Dvars</a> •
   <a href="#installation">Installation</a> •
   <a href="#todo">Todo</a> •
   <a href="#credits">Credits</a>
@@ -33,14 +32,8 @@
 * Explosive Bullets
 * Killstreak Dvar
 * Death Drop Gun
+* GSC Menu
 * & More!
-
-## Dvars
-
-* mvm_killstreak_{[KILLSTREAK NAME](https://github.com/kruumy/bo1-editing-mod/blob/main/killstreak.txt)}
-* mvm_eb_close
-* mvm_canswap
-* bots_...
 
 ## Installation
 
