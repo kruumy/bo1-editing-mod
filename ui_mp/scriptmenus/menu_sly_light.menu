@@ -1,0 +1,553 @@
+#include "ui/menudef.h"
+
+#define ORIGIN_QUICKMESSAGETAB			32 224
+
+{
+	menuDef
+	{
+		name			"menu_sly_light"
+		fullscreen		0
+		rect			0 0 640 480
+		focuscolor		1 1 1 1
+		disablecolor	0 0 0 0
+ 		style			WINDOW_STYLE_EMPTY
+
+		onOpen
+		{
+			setDvar cl_bypassMouseInput "0"
+		}
+		onEsc
+		{
+			close menu_sly_light; open menu_sly_main;
+		}
+		
+// WINDOW BACKGROUND
+		itemDef
+		{
+			name			"window_background"
+			visible			1
+			rect			0 0 224 192
+			origin			32 256
+	 		style			WINDOW_STYLE_FILLED
+			forecolor		1 1 1 1
+			backcolor		0 0 0 0.7975
+			decoration
+		}
+	
+// WINDOW LINES
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			3 0 2 187
+			origin			32 256
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			219 0 2 187
+			origin			32 256
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			5 0 214 2
+			origin			32 256
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			3 187 218 2
+			origin			32 256
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+
+// TITLE
+		itemDef
+		{
+			name			"title"
+			type			ITEM_TYPE_TEXT
+			visible			1
+			rect			0 0 224 32
+			origin			ORIGIN_QUICKMESSAGETAB
+			style			WINDOW_STYLE_FILLED
+			forecolor		1 1 1 1
+			backcolor		0 0 0 0.7975
+			text			"Lighttweak Sliders"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		24
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+		itemDef
+		{
+			name			"title_quickmessage_gray"
+			visible			1
+			rect			3 3 218 29
+			origin			ORIGIN_QUICKMESSAGETAB
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+
+		itemDef
+		{
+			name			"r_lightTweakSunLight"
+			type			ITEM_TYPE_BUTTON
+			rect			16 4 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Sun Light"
+			visible			1
+			onFocus { setitemcolor r_lightTweakSunLight forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor r_lightTweakSunLight forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar r_lightTweakSunLight "4"; }
+		}
+		
+		itemDef
+		{
+			name 			r_lightTweakSunLight_slider
+			rect 			172 7 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"r_lightTweakSunLight" 4 0 4
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar r_lightTweakSunLight
+			}
+		}
+		
+		itemDef 
+		{
+			name 			r_lightTweakSunLight_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 4 1 1
+			dvar 			r_lightTweakSunLight
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"menu_lightTweakSunColor_R"
+			type			ITEM_TYPE_BUTTON
+			rect			16 20 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Sun R"
+			visible			1
+			onFocus { setitemcolor menu_lightTweakSunColor_R forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor menu_lightTweakSunColor_R forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_lightTweakSunColor_R "255"; }
+		}
+		
+		itemDef
+		{
+			name 			menu_lightTweakSunColor_R_slider
+			rect 			172 23 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_lightTweakSunColor_R" 255 0 255
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_lightTweakSunColor_R
+			}
+		}
+		
+		itemDef 
+		{
+			name 			menu_lightTweakSunColor_R_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 20 1 1
+			dvar 			menu_lightTweakSunColor_R
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"menu_lightTweakSunColor_G"
+			type			ITEM_TYPE_BUTTON
+			rect			16 36 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Sun G"
+			visible			1
+			onFocus { setitemcolor menu_lightTweakSunColor_G forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor menu_lightTweakSunColor_G forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_lightTweakSunColor_G "255"; }
+		}
+		
+		itemDef
+		{
+			name 			menu_lightTweakSunColor_G_slider
+			rect 			172 39 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_lightTweakSunColor_G" 255 0 255
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_lightTweakSunColor_G
+			}
+		}
+		
+		itemDef 
+		{
+			name 			menu_lightTweakSunColor_G_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 36 1 1
+			dvar 			menu_lightTweakSunColor_G
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"menu_lightTweakSunColor_B"
+			type			ITEM_TYPE_BUTTON
+			rect			16 52 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Sun B"
+			visible			1
+			onFocus { setitemcolor menu_lightTweakSunColor_B forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor menu_lightTweakSunColor_B forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_lightTweakSunColor_B "255"; }
+		}
+		
+		itemDef
+		{
+			name 			menu_lightTweakSunColor_B_slider
+			rect 			172 55 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_lightTweakSunColor_B" 255 0 255
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_lightTweakSunColor_B
+			}
+		}
+		
+		itemDef 
+		{
+			name 			menu_lightTweakSunColor_B_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 52 1 1
+			dvar 			menu_lightTweakSunColor_B
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"menu_lightTweakSunDirection_X"
+			type			ITEM_TYPE_BUTTON
+			rect			16 68 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Angle X"
+			visible			1
+			onFocus { setitemcolor menu_lightTweakSunDirection_X forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor menu_lightTweakSunDirection_X forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_lightTweakSunDirection_X "-90"; }
+		}
+		
+		itemDef
+		{
+			name 			menu_lightTweakSunDirection_X_slider
+			rect 			172 71 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_lightTweakSunDirection_X" -90 -360 360
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_lightTweakSunDirection_X
+			}
+		}
+		
+		itemDef 
+		{
+			name 			menu_lightTweakSunDirection_X_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 68 1 1
+			dvar 			menu_lightTweakSunDirection_X
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"menu_lightTweakSunDirection_Y"
+			type			ITEM_TYPE_BUTTON
+			rect			16 84 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Angle Y"
+			visible			1
+			onFocus { setitemcolor menu_lightTweakSunDirection_Y forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor menu_lightTweakSunDirection_Y forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_lightTweakSunDirection_Y "0"; }
+		}
+		
+		itemDef
+		{
+			name 			menu_lightTweakSunDirection_Y_slider
+			rect 			172 87 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_lightTweakSunDirection_Y" 0 -360 360
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_lightTweakSunDirection_Y
+			}
+		}
+		
+		itemDef 
+		{
+			name 			menu_lightTweakSunDirection_Y_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 84 1 1
+			dvar 			menu_lightTweakSunDirection_Y
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			type			ITEM_TYPE_BUTTON
+			visible			1
+			rect			16 84 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			" "
+		}
+		action { play "mouse_click"; close quickcommands; open quickresponses; }
+	
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			type			ITEM_TYPE_BUTTON
+			visible			1
+			rect			16 100 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			" "
+		}
+		action { play "mouse_click"; close quickcommands; open quickresponses; }
+
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			type			ITEM_TYPE_BUTTON
+			visible			1
+			rect			16 116 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			" "
+		}
+		action { play "mouse_click"; close quickcommands; open quickresponses; }
+	
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			type			ITEM_TYPE_BUTTON
+			visible			1
+			rect			16 132 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			" "
+		}
+		action { play "mouse_click"; close quickcommands; open quickresponses; }
+	
+		itemDef
+		{
+			name			"window"
+			type			ITEM_TYPE_BUTTON
+			visible			1
+			rect			16 148 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			" "
+		}
+		action { play "mouse_click"; close quickcommands; open quickresponses; }
+	}
+}

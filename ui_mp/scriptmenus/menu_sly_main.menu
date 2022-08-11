@@ -1,0 +1,213 @@
+#include "ui/menudef.h"
+
+#define ORIGIN_QUICKMESSAGETAB			32 224
+
+{
+	menuDef
+	{
+		name			"menu_sly_main"
+		fullscreen		0
+		rect			0 0 640 480
+		focuscolor		1 1 1 1
+		disablecolor	0 0 0 0
+ 		style			WINDOW_STYLE_EMPTY
+
+		onOpen
+		{
+			setDvar cl_bypassMouseInput "0"
+		}
+
+// WINDOW BACKGROUND
+		itemDef
+		{
+			name			"window_background"
+			visible			1
+			rect			0 0 224 192
+			origin			32 256
+	 		style			WINDOW_STYLE_FILLED
+			forecolor		1 1 1 1
+			backcolor		0 0 0 0.7975
+			decoration
+		}
+	
+// WINDOW LINES
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			3 0 2 187
+			origin			32 256
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			219 0 2 187
+			origin			32 256
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			5 0 214 2
+			origin			32 256
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			3 187 218 2
+			origin			32 256
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+
+// TITLE
+		itemDef
+		{
+			name			"title"
+			type			ITEM_TYPE_TEXT
+			visible			1
+			rect			0 0 224 32
+			origin			ORIGIN_QUICKMESSAGETAB
+			style			WINDOW_STYLE_FILLED
+			forecolor		1 1 1 1
+			backcolor		0 0 0 0.7975
+			text			"Sly's T5 Movie Mod Menu"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		24
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+		itemDef
+		{
+			name			"title_quickmessage_gray"
+			visible			1
+			rect			3 3 218 29
+			origin			ORIGIN_QUICKMESSAGETAB
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+
+		itemDef
+		{
+			name			"fog_box"
+			type			ITEM_TYPE_BUTTON
+			rect			16 20 90 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Fog Sliders"
+			visible			1
+			onFocus { setitemcolor fog_box forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor fog_box forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; close menu_sly_main; open menu_sly_fog; }
+		}
+		
+		itemDef
+		{
+			name			"filmtweak_box"
+			type			ITEM_TYPE_BUTTON
+			rect			16 36 90 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Filmtweak Sliders"
+			visible			1
+			onFocus { setitemcolor filmtweak_box forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor filmtweak_box forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; close menu_sly_main; open menu_sly_film1; }
+		}
+		itemDef
+		{
+			name			"lighttweak_box"
+			type			ITEM_TYPE_BUTTON
+			rect			16 52 90 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Lighttweaks Sliders"
+			visible			1
+			onFocus { setitemcolor lighttweak_box forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor lighttweak_box forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; close menu_sly_main; open menu_sly_light; }
+		}
+		
+		itemDef
+		{
+			name			"dof_box"
+			type			ITEM_TYPE_BUTTON
+			rect			16 68 90 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Depth of Field Sliders"
+			visible			1
+			onFocus { setitemcolor dof_box forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor dof_box forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; close menu_sly_main; open menu_sly_dof; }
+		}
+		
+		itemDef
+		{
+			name			"bo3_color_box"
+			type			ITEM_TYPE_BUTTON
+			rect			16 84 90 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"BO3 Color Menu"
+			visible			1
+			onFocus { setitemcolor bo3_color_box forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor bo3_color_box forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; close menu_sly_main; open menu_sly_bo3; }
+		}
+	}
+}

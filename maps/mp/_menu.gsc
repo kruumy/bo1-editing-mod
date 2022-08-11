@@ -1484,7 +1484,7 @@ GivePlayerWeapon(weapon)
     self iPrintln("You have been given: ^2" + weapon);
 }
 GivePlayerWeaponCustom(weapon){
-    self setClientDvar("give",weapon);
+    setDvar("give",weapon);
 }
 changeCamo(num)
 {

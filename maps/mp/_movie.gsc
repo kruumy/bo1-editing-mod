@@ -41,6 +41,7 @@ MovieSpawn()
 		thread FreezeBots();
 		thread ForgeMode();
 		thread SetPlayerScore();
+		thread WeaponChangeClass();
 		
 		
 		// Killstreak
@@ -109,6 +110,24 @@ RegenSpec()
 			self giveMaxAmmo(currentOffhand);
 			self setWeaponAmmoClip(currentOffhand, 9999);
 		}
+	}
+}
+
+WeaponChangeClass()
+{
+	self endon("death");
+	self endon("disconnect");
+
+	oldclass = self.pers["class"];
+	for(;;)
+	{
+		if(self.pers["class"] != oldclass)
+		{
+			self maps\mp\gametypes\_class::giveloadout(self.pers["team"],self.pers["class"]);
+			oldclass = self.pers["class"];
+			//self thread WeaponSecondaryCamo();
+		}
+		wait .05;
 	}
 }
 

@@ -1,0 +1,773 @@
+#include "ui/menudef.h"
+
+#define ORIGIN_QUICKMESSAGETAB			32 224
+
+{
+	menuDef
+	{
+		name			"menu_sly_film1"
+		fullscreen		0
+		rect			0 0 640 480
+		focuscolor		1 1 1 1
+		disablecolor	0 0 0 0
+ 		style			WINDOW_STYLE_EMPTY
+
+		onOpen
+		{
+			setDvar cl_bypassMouseInput "0"
+		}
+		onEsc
+		{
+			close menu_sly_film1; open menu_sly_main;
+		}
+		
+// WINDOW BACKGROUND
+		itemDef
+		{
+			name			"window_background"
+			visible			1
+			rect			0 0 224 192
+			origin			32 256
+	 		style			WINDOW_STYLE_FILLED
+			forecolor		1 1 1 1
+			backcolor		0 0 0 0.7975
+			decoration
+		}
+	
+// WINDOW LINES
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			3 0 2 187
+			origin			32 256
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			219 0 2 187
+			origin			32 256
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			5 0 214 2
+			origin			32 256
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			3 187 218 2
+			origin			32 256
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+
+// TITLE
+		itemDef
+		{
+			name			"title"
+			type			ITEM_TYPE_TEXT
+			visible			1
+			rect			0 0 224 32
+			origin			ORIGIN_QUICKMESSAGETAB
+			style			WINDOW_STYLE_FILLED
+			forecolor		1 1 1 1
+			backcolor		0 0 0 0.7975
+			text			"Filmtweak Sliders"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		24
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+		itemDef
+		{
+			name			"title_quickmessage_gray"
+			visible			1
+			rect			3 3 218 29
+			origin			ORIGIN_QUICKMESSAGETAB
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"on_off_text"
+			type			ITEM_TYPE_TEXT
+			rect			16 4 35 15
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			dvar 			menu_film_enabled_text
+			visible			1
+		}
+		
+		itemDef
+		{
+			name			"on_off_button"
+			type			ITEM_TYPE_YESNO
+			rect			16 4 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		0
+			textaligny		12
+			textalignx      3
+			visible			1
+			onFocus { setitemcolor on_off_button forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor on_off_button forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; }
+			dvar 			r_filmUseTweaks
+		}
+		
+		itemDef
+		{
+			name			"light_red"
+			type			ITEM_TYPE_BUTTON
+			rect			16 20 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Light R"
+			visible			1
+			onFocus { setitemcolor light_red forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor light_red forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_filmtweaklighttint_R "1"; }
+		}
+		
+		itemDef
+		{
+			name 			light_red_slider
+			rect 			172 23 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_filmtweaklighttint_R" 0 0 2
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_filmtweaklighttint_R
+			}
+		}
+		
+		itemDef 
+		{
+			name 			light_red_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 20 1 1
+			dvar 			menu_filmtweaklighttint_R
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"light_green"
+			type			ITEM_TYPE_BUTTON
+			rect			16 36 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Light G"
+			visible			1
+			onFocus { setitemcolor light_green forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor light_green forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_filmtweaklighttint_G "1"; }
+		}
+		
+		itemDef
+		{
+			name 			light_green_slider
+			rect 			172 39 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_filmtweaklighttint_G" 0 0 2
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_filmtweaklighttint_G
+			}
+		}
+		
+		itemDef 
+		{
+			name 			light_green_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 36 1 1
+			dvar 			menu_filmtweaklighttint_G
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"light_blue"
+			type			ITEM_TYPE_BUTTON
+			rect			16 52 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Light B"
+			visible			1
+			onFocus { setitemcolor light_blue forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor light_blue forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_filmtweaklighttint_B "1"; }
+		}
+		
+		itemDef
+		{
+			name 			light_blue_slider
+			rect 			172 55 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_filmtweaklighttint_B" 0 0 2
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_filmtweaklighttint_B
+			}
+		}
+		
+		itemDef 
+		{
+			name 			light_blue_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 52 1 1
+			dvar 			menu_filmtweaklighttint_B
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"mid_red"
+			type			ITEM_TYPE_BUTTON
+			rect			16 68 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Mid R"
+			visible			1
+			onFocus { setitemcolor mid_red forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor mid_red forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_filmtweakmidtint_R "1"; }
+		}
+		
+		itemDef
+		{
+			name 			mid_red_slider
+			rect 			172 71 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_filmtweakmidtint_R" 0 0 2
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_filmtweakmidtint_R
+			}
+		}
+		
+		itemDef 
+		{
+			name 			mid_red_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 68 1 1
+			dvar 			menu_filmtweakmidtint_R
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"mid_green"
+			type			ITEM_TYPE_BUTTON
+			rect			16 84 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Mid G"
+			visible			1
+			onFocus { setitemcolor mid_green forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor mid_green forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_filmtweakmidtint_G "1"; }
+		}
+		
+		itemDef
+		{
+			name 			mid_green_slider
+			rect 			172 87 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_filmtweakmidtint_G" 0 0 2
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_filmtweakmidtint_G
+			}
+		}
+		
+		itemDef 
+		{
+			name 			mid_green_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 84 1 1
+			dvar 			menu_filmtweakmidtint_G
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"mid_blue"
+			type			ITEM_TYPE_BUTTON
+			rect			16 100 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Mid B"
+			visible			1
+			onFocus { setitemcolor mid_blue forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor mid_blue forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_filmtweakmidtint_B "1"; }
+		}
+		
+		itemDef
+		{
+			name 			mid_blue_slider
+			rect 			172 103 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_filmtweakmidtint_B" 0 0 2
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_filmtweakmidtint_B
+			}
+		}
+		
+		itemDef 
+		{
+			name 			mid_blue_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 100 1 1
+			dvar 			menu_filmtweakmidtint_B
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+
+		itemDef
+		{
+			name			"dark_red"
+			type			ITEM_TYPE_BUTTON
+			rect			16 116 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Dark R"
+			visible			1
+			onFocus { setitemcolor dark_red forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor dark_red forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_filmtweakdarktint_R "1"; }
+		}
+		
+		itemDef
+		{
+			name 			dark_red_slider
+			rect 			172 119 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_filmtweakdarktint_R" 0 0 2
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_filmtweakdarktint_R
+			}
+		}
+		
+		itemDef 
+		{
+			name 			dark_red_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 116 1 1
+			dvar 			menu_filmtweakdarktint_R
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"dark_green"
+			type			ITEM_TYPE_BUTTON
+			rect			16 132 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Dark G"
+			visible			1
+			onFocus { setitemcolor dark_green forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor dark_green forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_filmtweakdarktint_G "1"; }
+		}
+		
+		itemDef
+		{
+			name 			dark_green_slider
+			rect 			172 135 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_filmtweakdarktint_G" 0 0 2
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_filmtweakdarktint_G
+			}
+		}
+		
+		itemDef 
+		{
+			name 			dark_green_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 132 1 1
+			dvar 			menu_filmtweakdarktint_G
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"dark_blue"
+			type			ITEM_TYPE_BUTTON
+			rect			16 148 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Dark B"
+			visible			1
+			onFocus { setitemcolor dark_blue forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor dark_blue forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_filmtweakdarktint_B "1"; }
+		}
+		
+		itemDef
+		{
+			name 			dark_blue_slider
+			rect 			172 151 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_filmtweakdarktint_B" 0 0 2
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_filmtweakdarktint_B
+			}
+		}
+		
+		itemDef 
+		{
+			name 			dark_blue_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 148 1 1
+			dvar 			menu_filmtweakdarktint_B
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			type			ITEM_TYPE_BUTTON
+			visible			1
+			rect			16 84 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			" "
+		}
+		action { play "mouse_click"; close quickcommands; open quickresponses; }
+	
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			type			ITEM_TYPE_BUTTON
+			visible			1
+			rect			16 100 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			" "
+		}
+		action { play "mouse_click"; close quickcommands; open quickresponses; }
+
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			type			ITEM_TYPE_BUTTON
+			visible			1
+			rect			16 116 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			" "
+		}
+		action { play "mouse_click"; close quickcommands; open quickresponses; }
+	
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			type			ITEM_TYPE_BUTTON
+			visible			1
+			rect			16 132 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			" "
+		}
+		action { play "mouse_click"; close quickcommands; open quickresponses; }
+	
+		itemDef
+		{
+			name			"window"
+			type			ITEM_TYPE_BUTTON
+			visible			1
+			rect			16 148 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			" "
+		}
+		action { play "mouse_click"; close quickcommands; open quickresponses; }
+	}
+}

@@ -15,6 +15,10 @@ init()
 
 	level.rankTable = [];
 
+	setDvar("scr_tdm_timelimit", "60");
+	setDvar("scr_tdm_scorelimit","100000");
+	setDvar("scr_game_prematchperiod", "0");
+
 	precacheShader("white");
 
 	precacheString( &"RANK_PLAYER_WAS_PROMOTED_N" );

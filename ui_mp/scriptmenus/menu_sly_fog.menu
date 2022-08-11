@@ -1,0 +1,530 @@
+#include "ui/menudef.h"
+
+#define ORIGIN_QUICKMESSAGETAB			32 224
+
+{
+	menuDef
+	{
+		name			"menu_sly_fog"
+		fullscreen		0
+		rect			0 0 640 480
+		focuscolor		1 1 1 1
+		disablecolor	0 0 0 0
+ 		style			WINDOW_STYLE_EMPTY
+
+		onOpen
+		{
+			setDvar cl_bypassMouseInput "0"
+		}
+		onEsc
+		{
+			close menu_sly_fog; open menu_sly_main;
+		}
+
+// WINDOW BACKGROUND
+		itemDef
+		{
+			name			"window_background"
+			visible			1
+			rect			0 0 224 192
+			origin			32 256
+	 		style			WINDOW_STYLE_FILLED
+			forecolor		1 1 1 1
+			backcolor		0 0 0 0.7975
+			decoration
+		}
+	
+// WINDOW LINES
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			3 0 2 187
+			origin			32 256
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			219 0 2 187
+			origin			32 256
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			5 0 214 2
+			origin			32 256
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			3 187 218 2
+			origin			32 256
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+
+// TITLE
+		itemDef
+		{
+			name			"title"
+			type			ITEM_TYPE_TEXT
+			visible			1
+			rect			0 0 224 32
+			origin			ORIGIN_QUICKMESSAGETAB
+			style			WINDOW_STYLE_FILLED
+			forecolor		1 1 1 1
+			backcolor		0 0 0 0.7975
+			text			"Fog Sliders"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		24
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+		itemDef
+		{
+			name			"title_quickmessage_gray"
+			visible			1
+			rect			3 3 218 29
+			origin			ORIGIN_QUICKMESSAGETAB
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"on_off_text"
+			type			ITEM_TYPE_TEXT
+			rect			16 4 35 15
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			dvar 			menu_fog_enabled_text
+			visible			1
+		}
+		
+		itemDef
+		{
+			name			"on_off_button"
+			type			ITEM_TYPE_YESNO
+			rect			16 4 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		0
+			textaligny		12
+			textalignx      3
+			visible			1
+			onFocus { setitemcolor on_off_button forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor on_off_button forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; }
+			dvar 			menu_fog_enabled
+		}
+		
+		itemDef
+		{
+			name			"r_color"
+			type			ITEM_TYPE_BUTTON
+			rect			16 20 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Red"
+			visible			1
+			onFocus { setitemcolor r_color forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor r_color forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_fog_R "0"; }
+		}
+		
+		itemDef
+		{
+			name 			r_color_slider
+			rect 			172 23 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_fog_R" 0 0 255
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_fog_R
+			}
+		}
+		
+		itemDef 
+		{
+			name 			r_color_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 20 1 1
+			dvar 			menu_fog_R
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"g_color"
+			type			ITEM_TYPE_BUTTON
+			rect			16 36 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Green"
+			visible			1
+			onFocus { setitemcolor g_color forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor g_color forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_fog_G "0"; }
+		}
+		
+		itemDef
+		{
+			name 			g_color_slider
+			rect 			172 39 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_fog_G" 0 0 255
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_fog_G
+			}
+		}
+		
+		itemDef 
+		{
+			name 			g_color_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 36 1 1
+			dvar 			menu_fog_G
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"b_color"
+			type			ITEM_TYPE_BUTTON
+			rect			16 52 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Blue"
+			visible			1
+			onFocus { setitemcolor b_color forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor b_color forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_fog_B "0"; }
+		}
+		
+		itemDef
+		{
+			name 			b_color_slider
+			rect 			172 55 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_fog_B" 0 0 255
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_fog_B
+			}
+		}
+		
+		itemDef 
+		{
+			name 			b_color_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 52 1 1
+			dvar 			menu_fog_B
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"start"
+			type			ITEM_TYPE_BUTTON
+			rect			16 68 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"Start"
+			visible			1
+			onFocus { setitemcolor start forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor start forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_fog_startdist "0"; }
+		}
+		
+		itemDef
+		{
+			name 			start_slider
+			rect 			172 71 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_fog_startdist" 0 0 600
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_fog_startdist
+			}
+		}
+		
+		itemDef 
+		{
+			name 			start_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 68 1 1
+			dvar 			menu_fog_startdist
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"end"
+			type			ITEM_TYPE_BUTTON
+			rect			16 84 35 15
+			border 1
+			borderSize 1
+			borderColor	 	1 1 1 0.3
+			backcolor 		0 0 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		12
+			textalignx      3
+			text			"End"
+			visible			1
+			onFocus { setitemcolor end forecolor 1 1 1 0.5 ;}
+			leaveFocus{ setitemcolor end forecolor 1 1 1 1 ;}
+			action { play "mouse_click"; setDvar menu_fog_halfdist "0"; }
+		}
+		
+		itemDef
+		{
+			name 			end_slider
+			rect 			172 87 95 11 1 1
+			style 			0
+			ownerdraw 		0
+			ownerdrawFlag 	0
+			origin			32 256
+			foreColor 		1 1 1 1
+			type 			ITEM_TYPE_SLIDER
+			dvarfloat 		"menu_fog_halfdist" 0 0 10000
+			visible 		1
+			onFocus
+			{
+				"play" "mouse_over";
+			}
+			action
+			{
+				setDvar menu_fog_halfdist
+			}
+		}
+		
+		itemDef 
+		{
+			name 			end_value
+			type 			ITEM_TYPE_TEXT
+			rect			205 84 1 1
+			dvar 			menu_fog_halfdist
+			origin			32 256
+			textscale 		.24
+			style			 WINDOW_STYLE_FILLED
+			textalign 		ITEM_ALIGN_RIGHT
+			textalignx 		3
+			textaligny 		12
+			textfont 		UI_FONT_NORMAL
+			forecolor 		1 1 1 1
+			visible 		1
+		}
+		
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			type			ITEM_TYPE_BUTTON
+			visible			1
+			rect			16 84 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			" "
+		}
+		action { play "mouse_click"; close quickcommands; open quickresponses; }
+	
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			type			ITEM_TYPE_BUTTON
+			visible			1
+			rect			16 100 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			" "
+		}
+		action { play "mouse_click"; close quickcommands; open quickresponses; }
+
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			type			ITEM_TYPE_BUTTON
+			visible			1
+			rect			16 116 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			" "
+		}
+		action { play "mouse_click"; close quickcommands; open quickresponses; }
+	
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			type			ITEM_TYPE_BUTTON
+			visible			1
+			rect			16 132 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			" "
+		}
+		action { play "mouse_click"; close quickcommands; open quickresponses; }
+	
+		itemDef
+		{
+			name			"window"
+			type			ITEM_TYPE_BUTTON
+			visible			1
+			rect			16 148 0 0
+			origin			32 256
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			" "
+		}
+		action { play "mouse_click"; close quickcommands; open quickresponses; }
+	}
+}
