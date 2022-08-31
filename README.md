@@ -13,7 +13,7 @@
 <p align="center">
   <a href="#features">Features</a> •
   <a href="#installation">Installation</a> •
-  <a href="#todo">Todo</a> •
+  <a href="#support">Support</a> •
   <a href="#credits">Credits</a>
 </p>
 <div align="center">
@@ -43,9 +43,12 @@
 
 *Note: For plutonium, you need to put the mod in %localappdata%/Plutonium/storage/t5/mods
 
-## Todo
+## Support
 
-* More more more!
+| Name | Status |
+| --- | --- |
+| Steam BO1 | No |
+| Pluto/Rekt | Yes |
 
 ## Credits
 
