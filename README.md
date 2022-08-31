@@ -49,6 +49,8 @@
 | --- | --- |
 | Steam BO1 | No |
 | Pluto/Rekt | Yes |
+                 
+*Older versions might work with steam*
 
 ## Credits
 
